@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Calzado Dama</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
   <body>
     
@@ -81,14 +83,14 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="{{ route('ventas')}}" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
                 Ventas
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+              <a href="{{ route('logout')}}" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use href="{{ route('logout')}}"></use></svg>
                 LogOut
               </a>
             </li>
@@ -110,7 +112,10 @@
       </div>
 
 
-@yield('content')
+      <div class="container">
+        @yield('content')
+      </div>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

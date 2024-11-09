@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\formProductoController;
-
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\LogoutController;
 
 Route::view('/', 'home')->name('home');
 Route::view('acerca-de', 'about')->name('about');
@@ -25,7 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+/* Logout Controller */
+Route::get('/logout', 'App\Http\Controllers\LogoutController@logout')->name('logout');
 
 Route::get('/formProductos', [formProductoController::class, 'create'])->name('formProductos');
+Route::get('/ventas', [VentaController::class, 'index'])->name('ventas');
 
 require __DIR__.'/auth.php';
