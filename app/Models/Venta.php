@@ -11,9 +11,10 @@ class Venta extends Model
     use HasFactory;
 
     protected $fillable = [
-        'monto',
-        'fecha',
-        'cantidad',
+       'ID_Cliente',
+        'Fecha_venta',
         'producto',
+        'cantidad',
+        'Monto_total',
     ];
 }

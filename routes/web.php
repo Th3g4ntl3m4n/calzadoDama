@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\formProductoController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ClienteController;
 
 Route::view('/', 'home')->name('home');
 Route::view('acerca-de', 'about')->name('about');
@@ -13,6 +14,9 @@ Route::view('acerca-de', 'about')->name('about');
 Route::get('productos',  [ProductosController::class, 'index'])->name('productos.index');
 
 Route::get('productos/{producto:slug}', [ProductosController::class, 'show'])->name('productos.show');
+
+Route::post('/comprarProducto/{id}', [ProductosController::class, 'comprar'])->name('comprarProducto');
+
 
 Route::view('contacto', 'contact')->name('contact');
 
@@ -31,5 +35,13 @@ Route::get('/logout', 'App\Http\Controllers\LogoutController@logout')->name('log
 
 Route::get('/formProductos', [formProductoController::class, 'create'])->name('formProductos');
 Route::get('/ventas', [VentaController::class, 'index'])->name('ventas');
+
+
+    Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+    Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
+    Route::get('/clientes/{id}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+    Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+
 
 require __DIR__.'/auth.php';

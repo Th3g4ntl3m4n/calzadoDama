@@ -18,6 +18,7 @@
         </thead>
         <tbody>
             @foreach($ventas as $venta)
+           
                 <tr>
                     <td>{{ $venta->id }}</td>
                     <td>{{ $venta->producto }}</td>
@@ -51,39 +52,7 @@
             <div class="card bg-warning text-white">
                 <div class="card-body">
                     <h5 class="card-title">Promedio de Venta</h5>
-                    <p class="card-text">${{ number_format($ventas->avg('Monto_Total'), 2) }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Producto más y menos vendido -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card bg-info text-white">
-                <div class="card-body">
-                    <h5 class="card-title">Producto Más Vendido</h5>
-                    <p class="card-text">
-                        @if($productoMasVendido)
-                            {{ $productoMasVendido->producto }} - Vendidos: {{ $productoMasVendido->total_vendido }}
-                        @else
-                            No hay datos disponibles
-                        @endif
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card bg-danger text-white">
-                <div class="card-body">
-                    <h5 class="card-title">Producto Menos Vendido</h5>
-                    <p class="card-text">
-                        @if($productoMenosVendido)
-                            {{ $productoMenosVendido->producto }} - Vendidos: {{ $productoMenosVendido->total_vendido }}
-                        @else
-                            No hay datos disponibles
-                        @endif
-                    </p>
+                    <p class="card-text">${{ number_format($ventas->avg('monto_Total'), 2) }}</p>
                 </div>
             </div>
         </div>
