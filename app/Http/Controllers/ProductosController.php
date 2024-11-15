@@ -31,7 +31,7 @@ class ProductosController extends Controller
         if ($producto->Stock > 0) {
             // Registrar la venta en la tabla `ventas`
             Venta::create([
-                'ID_Cliente' => auth()->user()->id, // Asumiendo que estás usando autenticación
+                'ID_Cliente' => 0,//auth()->user()->id, // Asumiendo que estás usando autenticación
                 'Fecha_venta' => now(),
                 'producto' => $producto->Nombre,
                 'cantidad' => 1, // Cambia esto si usas un campo de cantidad
